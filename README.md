@@ -5,6 +5,7 @@ The following `Practice` section will combine practice source code and diagrams 
 Help all beginners and myself to spend the least time to prepare and review for all algo concepts and quickly getting into real coding problems.
 
 # Description(Steps): 
+- Programming Language/Concept Refresh
 - Data Structure Basic
 - Graph
 - Greedy
