@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+* Paging problem in Operation System to deal with memory allocation using Greedy objective and strategy
+**/
 public class Fif {
     private static int fif(int cacheSize, int[] requests) {
         // cache doesn't care about sequence
