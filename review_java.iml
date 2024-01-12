@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Greedy/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/JavaReview/OOP/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Sort/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DP/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

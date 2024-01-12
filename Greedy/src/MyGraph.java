@@ -1,9 +1,3 @@
-// --== CS400 Project Three File Header ==--
-// Name: Yan Liu
-// CSL Username: yan
-// Email: yliu926@wisc.edu
-// Lecture #: 002 @1:00pm
-// Notes to Grader: <>
 import java.util.*;
 
 /**
