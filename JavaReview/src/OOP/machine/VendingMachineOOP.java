@@ -1,6 +1,6 @@
-package machine;
+package OOP.machine;
 
-import display.Show; //只要一个类不在你这个类的包，你要用的话就要import
+import OOP.display.Show; //只要一个类不在你这个类的包，你要用的话就要import
 // 也就是包的管理机制，包之间的.是包的层级关系链路: import java.util.Scanner(这个才是类名);
 
 public class VendingMachineOOP { // public关键字 - public type name should == its file name

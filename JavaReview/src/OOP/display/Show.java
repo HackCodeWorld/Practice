@@ -1,4 +1,4 @@
-package display;
+package OOP.display;
 
 public class Show {
     // 演示作用
