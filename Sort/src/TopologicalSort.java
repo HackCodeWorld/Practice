@@ -25,7 +25,7 @@ class Graph {
     }
 }
 
-class TopologicalSort {
+public class TopologicalSort {
     private final Graph graph;
     private final Stack<Integer> stack;
     private final boolean[] visited;
@@ -77,7 +77,7 @@ class GraphToDot {
 
 }
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Graph graph = new Graph(6);
         graph.addEdge(5, 2);

@@ -1,10 +1,12 @@
+import java.util.*;
+
 /**
  * This class extends the Graph class implemented by an undirected graph class and added the leastTransferPath()
  * leastTransferPath will return the least number of nodes ignoring the least cost. Also, its corresponding cost value
  * will be returned as well in the leastTransferPathCost method
  **/
 @SuppressWarnings("all")
-public class StationGraph<T> extends Graph<T> implements IStationGraph<T>{
+public class Dijkstra<T> extends MyGraph<T> implements IStationGraph<T>{
    
     private Path leastTransferPath; //store the leastTransfer path object
     

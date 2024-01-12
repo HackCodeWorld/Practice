@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/JavaReview/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Shapes/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Greedy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaReview/OOP/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Sort/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
