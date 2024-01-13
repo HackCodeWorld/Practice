@@ -19,6 +19,10 @@ public class CD extends Item {
         this.artist = artist;
     }
 
+    public CD() {
+
+    }
+
     public static void main(String[] args) {
 
     }

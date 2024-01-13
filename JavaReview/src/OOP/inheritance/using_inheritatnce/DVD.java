@@ -19,6 +19,10 @@ public class DVD extends Item{
         this.director = director;
     }
 
+    public DVD() {
+
+    }
+
     public void print() {
         System.out.println("DVD" + ":" + title + ":" + director);
     }

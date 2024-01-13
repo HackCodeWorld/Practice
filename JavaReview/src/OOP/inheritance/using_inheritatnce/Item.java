@@ -18,6 +18,10 @@ public class Item {
         this.comment = comment;
     }
 
+    public Item() {
+
+    }
+
     public void print() {
     }
 }
