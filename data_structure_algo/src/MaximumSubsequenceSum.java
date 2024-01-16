@@ -11,7 +11,7 @@
 class MaximumSubsequenceSum {
     public static void main(String[] args) {
         int[] A = new int[]{-2, 11, -4, 13, -5, -2};
-        int K = 6;
+        int K = A.length;
         int sum = maximumSubsequenceSum(A, K);
         int sum2 = maximumSubsequenceSum2(A, K);
         System.out.println(sum);
@@ -27,17 +27,18 @@ class MaximumSubsequenceSum {
     static int maximumSubsequenceSum2(int[] sequence, int size){
         boolean isPositive = true;
         int sum = 0, maxSum = 0;
-        for (int i = 0; i < sequence.length; i++) {
+        for (int i = 0; i < size; i++) {
             // constraint: 在一行中输出最大子列和。如果序列中所有整数皆为负数，则输出0。
             isPositive = sequence[i] < 0 ? false : true;
             sum += sequence[i];
             if(sum > maxSum) maxSum = sum; // if the sum > previous maxSum then update
-            else if (sum < 0) sum = 0; // it'll not be beneficial for the maxSum in which E num should > 0
+            else if (sum < 0) sum = 0; // current sum is negative then
+            // it'll not be beneficial for the maxSum in which E num should > 0
+            // so abandon it
         }
         // If all integers in the sequence are negative, output 0.
         return isPositive ? 0 : maxSum;
     }
-
 
 
     /**
