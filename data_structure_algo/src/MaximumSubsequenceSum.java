@@ -40,7 +40,6 @@ class MaximumSubsequenceSum {
         return isPositive ? 0 : maxSum;
     }
 
-
     /**
      * Divide & Conquer Version
      * Recurrence:
