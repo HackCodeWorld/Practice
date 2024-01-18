@@ -23,8 +23,26 @@ public class CD extends Item {
 
     }
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        return "CD{" +
+                "artist='" + artist + '\'' +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        return artist.equals(((CD)obj).artist);
+    }
+
+    public static void main(String[] args) {
+        CD cd = new CD("a", "artist", 10, 10, "ok");
+        CD cd2 = new CD("a", "artist", 10, 10, "ok");
+        // use the root class 'Object' toString() method
+        System.out.println(cd.toString());
+
+        // Override Object class's equals
+        System.out.println(cd.equals(cd2));
     }
 
     public void print() {

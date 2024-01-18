@@ -27,6 +27,7 @@ public class DatabaseCD {
     public void add(Item item) {
         listItem.add(item); // 只要用父类加就行
     }
+
     public void list() {
 //        for (CD cd : listCD) {
 //            cd.print();
@@ -34,13 +35,18 @@ public class DatabaseCD {
 //        for (DVD dvd : listDVD) {
 //            dvd.print();
 //        }
-        for (Item item: listItem) {
+        for (Item item : listItem) {
+            // Polymorphism:
+            // Declarative type is Item
+            // Dynamic type can be DVD or CD
             item.print();
-
         }
     }
 
     public static void main(String[] args) {
+        Object o = new Object();
+        o.toString();
+
         DatabaseCD db = new DatabaseCD();
         db.add(new CD("abc", "Duke", 10, 20, "nice ... frankly"));
         db.add(new CD("abc", "Duke", 10, 20, "nice ... frankly"));
@@ -49,6 +55,11 @@ public class DatabaseCD {
         db.add(new DVD("abc", "Duke", 10, "nice ... frankly"));
         db.add(new DVD("abc", "Duke", 10, "nice ... frankly"));
         db.add(new DVD("abc", "Duke", 10, "nice ... frankly"));
+
+        // Now, added a new Class named VideoGame to 扩展
+        db.add(new VideoGame("gamer", 2, "nice ... frankly", 10));
+        db.add(new VideoGame("gamer", 2, "nice ... frankly", 10));
+        db.add(new VideoGame("gamer", 2, "nice ... frankly", 10));
 
         db.list();
     }

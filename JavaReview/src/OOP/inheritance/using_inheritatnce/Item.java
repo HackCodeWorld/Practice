@@ -22,6 +22,9 @@ public class Item {
 
     }
 
+    // farther class Item's print() will be overridden by CD / DVD print() based
+    // on the dynamic binding
     public void print() {
+        System.out.println(title);
     }
 }
