@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Game {
     private Room currentRoom;
         
-    public Game() 
-    {
+    public Game() {
         createRooms();
     }
 
@@ -52,8 +51,7 @@ public class Game {
 
     // 以下为用户命令
 
-    private void printHelp() 
-    {
+    private void printHelp() {
         System.out.print("迷路了吗？你可以做的命令有：go bye help");
         System.out.println("如：\tgo east");
     }
