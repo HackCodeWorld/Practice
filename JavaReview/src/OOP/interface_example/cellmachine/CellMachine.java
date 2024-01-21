@@ -1,31 +1,37 @@
-package cellmachine;
+package OOP.interface_example.cellmachine;
 
 import javax.swing.JFrame;
 
-import cell.Cell;
-import field.Field;
-import field.View;
+import OOP.interface_example.cell.Cell;
+import OOP.interface_example.field.Field;
+import OOP.interface_example.field.View;
 
 public class CellMachine {
 
 	public static void main(String[] args) {
 		Field field = new Field(30,30);
+		// prepare data
 		for ( int row = 0; row<field.getHeight(); row++ ) {
 			for ( int col = 0; col<field.getWidth(); col++ ) {
+				// initialized cell but not definitively lived
 				field.place(row, col, new Cell());
 			}
 		}
 		for ( int row = 0; row<field.getHeight(); row++ ) {
 			for ( int col = 0; col<field.getWidth(); col++ ) {
 				Cell cell = field.get(row, col);
+				// 1 / 5 cell reborn
 				if ( Math.random() < 0.2 ) {
 					cell.reborn();
 				}
 			}
 		}
+
 		View view = new View(field);
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame(); // GUI window
+		// x red button can close the program
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// some settings
 		frame.setResizable(false);
 		frame.setTitle("Cells");
 		frame.add(view);

@@ -1,4 +1,4 @@
-package field;
+package OOP.interface_example.field;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import cell.Cell;
+import OOP.interface_example.cell.Cell;
 
 public class View extends JPanel {
 	private static final long serialVersionUID = -5258995676212660595L;

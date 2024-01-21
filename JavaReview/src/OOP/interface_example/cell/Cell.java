@@ -1,4 +1,4 @@
-package cell;
+package OOP.interface_example.cell;
 
 import java.awt.Graphics;
  

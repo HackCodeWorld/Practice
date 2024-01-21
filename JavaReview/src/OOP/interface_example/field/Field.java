@@ -1,8 +1,8 @@
-package field;
+package OOP.interface_example.field;
 
 import java.util.ArrayList;
 
-import cell.Cell;
+import OOP.interface_example.cell.Cell;
 
 public class Field {
 	private int width;
