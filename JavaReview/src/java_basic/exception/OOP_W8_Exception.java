@@ -1,4 +1,4 @@
-package java_basic;
+package java_basic.exception;
 
 import java.util.Scanner;
 
@@ -22,6 +22,7 @@ public class OOP_W8_Exception {
             h(); // 是try
         } catch (NullPointerException e) { //catch不匹配
             System.out.println("k() caught an exception");
+            // 不throw的话就是这里已经处理了异常，main不会接收到 IndexOutOfBounds异常了
         }
     }
     public static void main(String[] args) {

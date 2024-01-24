@@ -11,11 +11,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CellMachine {
+
     class InnerClass {
         // cannot 调用 step()
+        // CAN invoke all resource if not in function just inside a class
+        int a  = all_resource();
+    }
+
+    int all_resource() {
+        return 1;
+    }
+
+    static void step(){
+
     }
 
     public static void main(String[] args) {
+        int a;
+
         Field field = new Field(30, 30);
         // prepare data
         for (int row = 0; row < field.getHeight(); row++) {
@@ -57,7 +70,12 @@ public class CellMachine {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("按下啦");
-//				可以调用 step()
+                // Variable 'view' is accessed from within inner class, needs to be final or effectively final
+                // : view = new View(field);
+				// 可以调用 step()
+                step(); // 函数内的内部类需要call static的外部函数（被实例共享的）才不违法
+                // 因为我们整一个都在main函数中，所以只能访问final变量
+                // a =5;
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException ex) {
