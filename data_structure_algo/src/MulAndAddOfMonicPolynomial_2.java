@@ -147,14 +147,15 @@ public class MulAndAddOfMonicPolynomial_2 {
         return dummyHead.next;
     }
 
-    private ListNode polyReader(int size, String in) {
+    private ListNode polyReader(String in) {
         String[] s = in.split(" ");
         ListNode result = new ListNode();
         result.next = new ListNode();
         ListNode res = result.next;
+        int size = s.length;
         for (int i = 0; i < size; i += 2) {
             res.coefficient = Integer.valueOf(s[i]);
-            res.term = Integer.valueOf(s[i + 1]);
+            res.term = i + 1 < size ? Integer.valueOf(s[i + 1]) : 0;
             // the last node then node.next is null
             res.next = i == size - 2 ? null : new ListNode();
             res = res.next;
@@ -162,18 +163,34 @@ public class MulAndAddOfMonicPolynomial_2 {
         return result.next;
     }
 
+    /**
+     * Testing the results
+     * input should be correct though
+     * @param args
+     */
     public static void main(String[] args) {
+        test1("4 3 2 2 5", "3 3 5 2 6");
+        test1("3 4 -5 2 6 1 -2 0", "5 20 -7 4 3 1");
+        test1("4 3 5", "3 4 5 2 6");
+        test1("2 2 3 0", "1 1 4 0");
+        /**Expected☑️:  2x^2 * x + 2x^2 * 4 + 3 * x + 3 * 4
+         = 2x^3 + 8x^2 + 3x + 12 **/
+        test1("2 3 0 2 3 1 4", "1 2 4");
+        /*Expected☑️: 2x^5 + 11x^3 + 4x^2 + 12x + 16*/
+    }
+
+    static void test1(String s1, String s2) {
         ListNode p1, p2, pm, pa;
         MulAndAddOfMonicPolynomial_2 m = new MulAndAddOfMonicPolynomial_2();
-        p1 = m.polyReader(4 * 2, "3 4 -5 2 6 1 -2 0");
-        p2 = m.polyReader(3 * 2, "5 20 -7 4 3 1");
+        p1 = m.polyReader(s1);
+        p2 = m.polyReader(s2);
         pm = m.polyMul(p1, p2);
         pa = m.polyAdd(p1, p2);
-
         System.out.println("Merging LinkedList: 多项式乘法：");
         System.out.println(pm);
         System.out.println("Merging LinkedList: 多项式加法：");
         System.out.println(pa);
+        System.out.println("##############################################################################");
     }
 }
 
