@@ -8,7 +8,7 @@
  * 输出样例:
  * 20
  */
-class MaximumSubsequenceSum {
+class MaximumSubsequenceSum_1 {
     public static void main(String[] args) {
         int[] A = new int[]{-2, 11, -4, 13, -5, -2};
         int K = A.length;
@@ -19,6 +19,8 @@ class MaximumSubsequenceSum {
     }
 
     /**
+     * Method 1
+     * Like Dynamic Programming
      * Online Algorithms Method 在线处理算法解决
      * @param sequence
      * @param size
@@ -41,6 +43,7 @@ class MaximumSubsequenceSum {
     }
 
     /**
+     * Method 2
      * Divide & Conquer Version
      * Recurrence:
      * T(N) = 2 * T(N/2) + O(N) =  2 * T(N/2) + c*N, T(1) = O(1)
