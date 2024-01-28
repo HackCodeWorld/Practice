@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Merging LinkedList
  * ##############################################################################
  * 记住！！！
+ * DUMMY节点的next指针为空，然后每次用dummy的cp currentNode.next = new Node(..., ...) 赋值
  * Only concerning ATTACH the new node with VALUE !!!
  * instead of adding an empty node by default
  * then messing around with the value inside !!!
@@ -64,25 +68,51 @@ public class MulAndAddOfMonicPolynomial_2 {
         }
     }
 
-//    private ListNode polyMul(ListNode p1, ListNode p2) {
-//        ListNode result = new ListNode();
-//        result.next = new ListNode();
-//        ListNode res = result.next;
-//        while(p1.next != null && p2.next != null){
-//            if(p1.term == p2.term){
-//                res.coefficient = p1.coefficient + p2.coefficient;
-//                res.term = p1.term;
-//            }else if(p1.term < p2.term){
-//                res.coefficient = p1.coefficient;
-//                res.term = p1.term;
-//            }else { // >
-//                res.coefficient = p2.coefficient;
-//                res.term = p2.term;
-//            }
-//
-//        }
-//        return result;
-//    }
+    private ListNode polyMul(ListNode p1, ListNode p2) {
+        ListNode dummyHead = new ListNode(0, 0);
+        ListNode curr = dummyHead;
+
+        ListNode t1 = p1;
+        while (p2 != null) {
+            if (p1 == null) { // 当p1指针走完就恢复到起点继续和p2匹配
+                p1 = t1; // 当p1指针走完就恢复到起点继续和p2匹配
+                p2 = p2.next; // 同时p2后移
+                continue; // 为了回到循环起始去check p2是否走完了，这里也可以check p2为null就直接break
+            }
+            int coe = p1.coefficient * p2.coefficient;
+            int term = p1.term + p2.term;
+            if (coe != 0) { // 仅当系数不为0时才添加节点
+                curr.next = new ListNode(coe, term);
+                curr = curr.next;
+            }
+            p1 = p1.next;
+        }
+
+        // distinct duplicates
+        curr = dummyHead;
+        HashMap<Integer, Integer> duplicates = new HashMap<>();
+        while (curr != null) {
+            if (duplicates.containsKey(curr.term)) { // existed
+                duplicates.put(curr.term, duplicates.get(curr.term) + curr.coefficient);
+            } else { // REMEMBER to use ELSE, there is no RETURN !!!
+                duplicates.put(curr.term, curr.coefficient);
+            }
+            curr = curr.next;
+        }
+
+        // sort the key list and 组装 result in dummy
+        List<Integer> lt = new ArrayList<>(duplicates.keySet());
+        lt.sort((a, b) -> b - a);
+
+        ListNode dummy = new ListNode(0, 0);
+        ListNode cur = dummy;
+        for (Integer term : lt) {
+            cur.next = new ListNode(duplicates.get(term), term); // attach to next (rear)
+            cur = cur.next;
+        }
+
+        return dummy.next;
+    }
 
     private ListNode polyAdd(ListNode p1, ListNode p2) {
         ListNode t1 = p1, t2 = p2;
@@ -137,8 +167,12 @@ public class MulAndAddOfMonicPolynomial_2 {
         MulAndAddOfMonicPolynomial_2 m = new MulAndAddOfMonicPolynomial_2();
         p1 = m.polyReader(4 * 2, "3 4 -5 2 6 1 -2 0");
         p2 = m.polyReader(3 * 2, "5 20 -7 4 3 1");
-//        pm = m.polyMul(p1, p2);
+        pm = m.polyMul(p1, p2);
         pa = m.polyAdd(p1, p2);
+
+        System.out.println("Merging LinkedList: 多项式乘法：");
+        System.out.println(pm);
+        System.out.println("Merging LinkedList: 多项式加法：");
         System.out.println(pa);
     }
 }
