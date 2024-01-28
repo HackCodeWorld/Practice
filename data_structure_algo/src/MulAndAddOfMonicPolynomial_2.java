@@ -1,6 +1,12 @@
 
 /**
  * Merging LinkedList
+ * ##############################################################################
+ * 记住！！！
+ * Only concerning ATTACH the new node with VALUE !!!
+ * instead of adding an empty node by default
+ * then messing around with the value inside !!!
+ * ##############################################################################
  * the primary purpose is to test about the foundational data structure like List
  * LinkedList manipulation
  * <p>
@@ -40,7 +46,6 @@ public class MulAndAddOfMonicPolynomial_2 {
         ListNode next;
 
         ListNode() {
-            next = null;
         }
 
         ListNode(int x, int y) {
@@ -81,44 +86,35 @@ public class MulAndAddOfMonicPolynomial_2 {
 
     private ListNode polyAdd(ListNode p1, ListNode p2) {
         ListNode t1 = p1, t2 = p2;
-        ListNode result = new ListNode();
-        result.next = new ListNode();
-        ListNode res = result.next;
+        /** only concerning ATTACH the new node with VALUE !!!
+         instead of adding an empty node by default
+         then messing around with the value inside !!! **/
+        ListNode dummyHead = new ListNode(0, 0);
+        ListNode curr = dummyHead;
 
         while (t1 != null && t2 != null) {
             if (t1.term == t2.term) {
                 int coe = t1.coefficient + t2.coefficient;
-                if (coe == 0) {
-                    t1 = t1.next;
-                    t2 = t2.next;
-                    continue;
+                if (coe != 0) { // 仅当系数和不为0时才添加节点
+                    curr.next = new ListNode(coe, t2.term);
+                    curr = curr.next;
                 }
-                res.coefficient = coe;
-                res.term = t1.term;
                 t1 = t1.next;
                 t2 = t2.next;
             } else if (t1.term > t2.term) {
-                res.coefficient = t1.coefficient;
-                res.term = t1.term;
+                curr.next = new ListNode(t1.coefficient, t1.term);
+                curr = curr.next;
                 t1 = t1.next;
             } else { // t1 < t2
-                res.coefficient = t2.coefficient;
-                res.term = t2.term;
+                curr.next = new ListNode(t2.coefficient, t2.term);
+                curr = curr.next;
                 t2 = t2.next;
             }
-            res.next = new ListNode();
-            res = res.next;
         }
 
-        if (t1 != null) {
-            res.next = t1;
-        }
-
-        if (t2 != null) {
-            res.next = t2;
-        }
-
-        return result.next;
+        // rest of nodes either from t1 or t2 adding to the rear of linked list
+        curr.next = (t1 != null) ? t1 : t2;
+        return dummyHead.next;
     }
 
     private ListNode polyReader(int size, String in) {
@@ -141,10 +137,6 @@ public class MulAndAddOfMonicPolynomial_2 {
         MulAndAddOfMonicPolynomial_2 m = new MulAndAddOfMonicPolynomial_2();
         p1 = m.polyReader(4 * 2, "3 4 -5 2 6 1 -2 0");
         p2 = m.polyReader(3 * 2, "5 20 -7 4 3 1");
-//        System.out.println(p1);
-//        System.out.println(p2);
-//        System.out.println(p1);
-//        System.out.println(p2);
 //        pm = m.polyMul(p1, p2);
         pa = m.polyAdd(p1, p2);
         System.out.println(pa);
