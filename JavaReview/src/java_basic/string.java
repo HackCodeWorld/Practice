@@ -52,5 +52,47 @@ public class string {
                 {"2", "3"},
                 {"6", "5"}
         };
+
+
+        String stri = "xz";
+        String stri2 = "xz";
+        System.out.println(stri == stri2);
+        String substring = stri2.substring(1);
+        System.out.println(substring);
+        String join = String.join("", "xz0", "xy");
+        System.out.println(join);
+        int count = solution("xzxzx");
+        System.out.println(count);
     }
+
+
+    /**
+     * 问题1 是要计算将字符串s分割成三个非空部分 a, b, 和 c 的方式数，
+     * 使得组合 a + b, b + c, 和 c + a 都是不同的字符串。
+     * 需要考虑s的所有可能分割，并对满足条件的分割进行计数。
+     * @param s
+     * @return
+     */
+    static int solution(String s) {
+        int count = 0;
+//        确保a, b, 和 c都是非空字符串，这意味着i和j的选择范围是0 < i < j < s.length()
+        for (int i = 1; i < s.length(); i++) {
+            for (int j = i + 1; j < s.length(); j++) {
+                //
+                String a = s.substring(0, i);
+                String b = s.substring(i, j);
+                String c = s.substring(j);
+//                分开组装免得出错
+                String ab = a + b;
+                String bc = b + c;
+                String ca = c + a;
+                if (!ab.equals(bc) && !bc.equals(ca) && !ab.equals(ca)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+
 }
