@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/DP/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/data_structure_algo/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/JavaReview/cells/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/advanced_java/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
