@@ -1,5 +1,6 @@
 package inner_class;
 
+/** intentionally made errors : /** **/
 public class InnerClass {
     public static void main(String[] args) {
 
@@ -16,16 +17,16 @@ class OuterClass01 { // outer class
     private int n = 1; // private int
 
     private void m2() {
-        private int a = 0;
-        public int b = 2;
+        /**private int a = 0;
+        public int b = 2;**/
     } // private method
 
     void m1() { // a method
-        public class Inner01 { // local inner class, can be final, no 修饰符
+        /**public**/ class Inner01 { // local inner class, can be final, no 修饰符
             private int w = 0;
 
             void f1() {
-                public int o = 0;
+                /**public int o = 0;**/
                 System.out.println("n = " + n); // private int
                 m2(); // private method
             }
@@ -38,8 +39,8 @@ class OuterClass01 { // outer class
             private int w = 0;
 
             void f1() {
-                public int o = 0;
-                private int w = 0;
+/**                public int o = 0;
+                private int w = 0;**/
                 System.out.println("n = " + n); // private int
                 m2(); // private method
             }
@@ -47,7 +48,7 @@ class OuterClass01 { // outer class
         new Inner02().f1(); // ok, 直接new对象
     }
 
-    Inne02() // no 只在block 内
+    /**Inne02() // no 只在block 内**/
 }
 
 /**
